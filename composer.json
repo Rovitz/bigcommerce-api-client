@@ -1,0 +1,19 @@
+{
+    "name": "hirooks/bigcommerce-api-client",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Hirooks\\BigCommerce\\Api\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Carmine Rovito",
+            "email": "carmine.rovito@hirooks.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.0",
+        "aligent/bigcommerce-api-client": "^1.11"
+    }
+}
