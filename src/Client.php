@@ -4,7 +4,8 @@ namespace Hirooks\BigCommerce\Api;
 
 use BigCommerce\ApiV2\V2ApiClient as ClientV2;
 use BigCommerce\ApiV3\Client as ClientV3;
-use Hirooks\BigCommerce\Api\Custom\RestClient;
+use Hirooks\BigCommerce\Api\Custom\RestClientV3;
+use Hirooks\BigCommerce\Api\Custom\RestClientV2;
 use Hirooks\BigCommerce\Api\Custom\GraphqlClient;
 
 class Client
@@ -45,11 +46,21 @@ class Client
     /**
      * Get an instance of custom REST API client.
      *
-     * @return RestClient
+     * @return RestClientV3
      */
-    public function custom()
+    public function customV3()
     {
-        return new RestClient($this->store_hash, $this->client_id, $this->auth_token);
+        return new RestClientV3($this->store_hash, $this->client_id, $this->auth_token);
+    }
+
+    /**
+     * Get an instance of custom REST API client.
+     *
+     * @return RestClientV2
+     */
+    public function customV2()
+    {
+        return new RestClientV2($this->store_hash, $this->client_id, $this->auth_token);
     }
 
     /**
