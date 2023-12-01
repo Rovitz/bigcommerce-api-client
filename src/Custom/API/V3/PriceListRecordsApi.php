@@ -52,8 +52,14 @@ class PriceListRecordsApi extends V3ApiBase
         );
     }
 
-    public function delete(array $ids): ResponseInterface
+    public function delete(array $ids = []): ResponseInterface
     {
+        if (empty($ids)) {
+            return $this->getClient()->getRestClient()->delete(
+                $this->recordsUrl()
+            );
+        }
+
         return $this->getClient()->getRestClient()->delete(
             $this->recordsUrl(),
             [
