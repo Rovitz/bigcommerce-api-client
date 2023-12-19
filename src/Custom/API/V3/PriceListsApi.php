@@ -4,7 +4,6 @@ namespace Hirooks\BigCommerce\Api\Custom\API\V3;
 
 use BigCommerce\ApiV3\Api\Generic\ResourceApi;
 use BigCommerce\ApiV3\Api\PriceLists\PriceListAssignmentsApi;
-use BigCommerce\ApiV3\Api\PriceLists\PriceListRecordsApi;
 use BigCommerce\ApiV3\ResponseModels\PriceList\PriceListResponse;
 use BigCommerce\ApiV3\ResponseModels\PriceList\PriceListsResponse;
 
