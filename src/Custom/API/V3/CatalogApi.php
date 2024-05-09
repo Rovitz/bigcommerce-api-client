@@ -2,7 +2,6 @@
 
 namespace Hirooks\BigCommerce\Api\Custom\API\V3;
 
-
 use BigCommerce\ApiV3\Api\Catalog\BrandsApi;
 use BigCommerce\ApiV3\Api\Catalog\CategoriesApi;
 use BigCommerce\ApiV3\Api\Catalog\SummaryApi;

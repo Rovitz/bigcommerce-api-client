@@ -18,7 +18,7 @@ class ChannelAssignmentsApi extends ResourceApi
         return new ChannelAssignmentsResponse($this->getAllResources($filters, $page, $limit));
     }
 
-    public function create(array $channel_assignments): ChannelAssignmentsResponse
+    public function create(array $channel_assignments): bool
     {
         $response = $this->getClient()->getRestClient()->put(
             $this->multipleResourceUrl(),
@@ -27,12 +27,12 @@ class ChannelAssignmentsApi extends ResourceApi
             ]
         );
 
-        return new ChannelAssignmentsResponse($response);
+        return $response->getStatusCode() === 204;
     }
 
-    public function delete(array $product_ids = []): ResponseInterface
+    public function delete(array $product_ids = []): bool
     {
-        return $this->getClient()->getRestClient()->delete(
+        $response = $this->getClient()->getRestClient()->delete(
             $this->multipleResourceUrl(),
             [
                 RequestOptions::QUERY => [
@@ -40,6 +40,8 @@ class ChannelAssignmentsApi extends ResourceApi
                 ]
             ]
         );
+
+        return $response->getStatusCode() === 204;
     }
 
     protected function multipleResourcesEndpoint(): string
@@ -51,12 +53,12 @@ class ChannelAssignmentsApi extends ResourceApi
     {
         return self::RESOURCE_NAME;
     }
-    
+
     protected function singleResourceEndpoint(): string
     {
         return self::CHANNEL_ASSIGNMENTS_ENDPOINT;
     }
-    
+
     public function get(): SingleResourceResponse
     {
         // TODO: Implement get() method.
