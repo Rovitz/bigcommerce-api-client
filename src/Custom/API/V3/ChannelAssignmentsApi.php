@@ -30,9 +30,9 @@ class ChannelAssignmentsApi extends ResourceApi
         return $response->getStatusCode() === 204;
     }
 
-    public function delete(array $product_ids = []): bool
+    public function delete(array $product_ids = []): ResponseInterface
     {
-        $response = $this->getClient()->getRestClient()->delete(
+        return $this->getClient()->getRestClient()->delete(
             $this->multipleResourceUrl(),
             [
                 RequestOptions::QUERY => [
@@ -40,8 +40,6 @@ class ChannelAssignmentsApi extends ResourceApi
                 ]
             ]
         );
-
-        return $response->getStatusCode() === 204;
     }
 
     protected function multipleResourcesEndpoint(): string
